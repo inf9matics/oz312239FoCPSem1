@@ -1,12 +1,12 @@
 #include<iostream>
 
+auto x, b, a;
+
 void multiply(){
     x = a * b;
-    std::cout << x;
 }
 
 main(){
-    auto x, b, a;
     char t;
     std::cout<< "multiply = m\n" << "divise\n" << "add = a\n" << "subtract = s\n";
     std::cin >> t;
@@ -14,8 +14,8 @@ main(){
     std::cin >> a;
     std::cout <<"b = ";
     std::cin >>
-    if(t == "m"){
-        multiply(auto = x)
+    if(char t == "m"){
+        multiply()
     }
     return x;
 }
