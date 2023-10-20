@@ -23,7 +23,7 @@ void subtract(){
     x = a - b;
 }
 
-main(){
+int main(){
     int t;
     std::cout<< "multiply = 1\n" << "divise = 2\n" << "add = 3\n" << "subtract = 4\n";
     std::cin >> t;
