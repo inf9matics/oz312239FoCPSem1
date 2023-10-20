@@ -2,7 +2,7 @@
 #include<cmath>
 
 int main(){
-    double a, b, c, delta;
+    float a, b, c, delta;
     std::cout<< "a = ";
     std::cin>> a;
     std::cout<< "b = ";
@@ -18,8 +18,8 @@ int main(){
         std::cout<<"x = "<<-b/(2 * a);
     }
     if(delta < 0){
-        std::cout<<"x1 = "<< -b/(2 * a)<< " - " << -sqrt(delta)/(2 * a)<<"i" <<"\n";
-        std::cout<<"x2 = "<< +b/(2 * a)<< " + " << -sqrt(delta)/(2 * a)<<"i";
+        std::cout<<"x1 = "<< -b/(2 * a)<< " - " << sqrt(-delta)/(2 * a) <<"i" <<"\n";
+        std::cout<<"x2 = "<< +b/(2 * a)<< " + " << sqrt(-delta)/(2 * a) <<"i";
     }
     return 0;
 }
