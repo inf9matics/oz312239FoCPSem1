@@ -1,0 +1,73 @@
+Write one program that performs all 6 of the following tasks displaying different patterns on the screen. Start with an interface implementation. The program should ask the user which pattern to choose. The user selects the pattern by specifying the task number (integer). Perform branching operations using switch statement. If the user selects correctly, the program should call functions like ex1(), ex2() to ex6(), respectively. If the selection is wrong, a message should appear that the wrong selection and the program should terminate. Implement functions ex1() to ex6() at the end. If the function has not yet been written, it should only display the message "Not yet implemented!". Additional questions related to the specifics of the example, as well as all variables needed for this should be placed in functions ex1() to ex2(). Do not use static global variables and "using namespace std;" declarations!!!!!!!!!!!!!!
+The numerical values in the examples are given for illustrative purposes only. The program should ask for these values and work for any values given by the user. However, the program should not allow you to select any size as a negative number and greater than 64 (so that it can be displayed on the screen in a meaningful way).
+
+
+Ex1
+	Write a piece of the C++ code that prints (to the standard output) a series of N asterisks: 
+
+	Example for N == 16:
+
+	****************
+
+Ex2
+	Write a piece of the C++ code that prints (to the standard output) a series of N characters: asterisks and dots alternatively: 
+
+	Example for N == 16:
+
+	*.*.*.*.*.*.*.*.
+
+Ex3
+	Write a piece of the C++ code that prints (to the standard output) a rectangle with R rows and C columns composed of horizontal black and white lines like in the example below. 
+
+	Example for R == 5, C == 8:
+
+	XXXXXXXX
+	........
+	XXXXXXXX
+	........
+	XXXXXXXX
+
+Ex4
+
+	Write a piece of the C++ code that prints (to the standard output) a square with N rows and N columns composed of black characters on and above the diagonal like in the example below. 
+	%
+	Example for N == 6:
+
+
+	XXXXXX
+	.XXXXX
+	..XXXX
+	...XXX
+	....XX
+	.....X
+
+Ex5
+	Write a piece of the C++ code that prints (to the standard output) a square chessboard.
+
+	Example for N == 8:
+
+
+	X.X.X.X.
+	.X.X.X.X
+	X.X.X.X.
+	.X.X.X.X
+	X.X.X.X.
+	.X.X.X.X
+	X.X.X.X.
+	.X.X.X.X
+
+Ex6
+	Write a piece of the C++ code that prints (to the standard output) two black and two white squares like in the example below chessboard.  
+	Example for N == 6:
+
+
+	XXX...
+	XXX...
+	XXX...
+	...XXX
+	...XXX
+	...XXX
+
+	In this example, the number N must be even for a nice pattern to come out. If the user specifies an odd number, N must be increased by 1.
+	
+	In this example, the number N must be even for a nice pattern to come out. If the user specifies an odd number, N must be increased by 1.
