@@ -1,0 +1,65 @@
+Arrays
+Arrays declared as int tab[constant]; no pointer approach.
+1. A program that fills an array with random values from -100 to 100 and than prints the array to the screen. Set 
+   the width of the number field to 5. The number of elements cannot be greater than 20.
+2. Modify 1 + A program that searches for the minimum in an array.
+3. Modify 1 + A program that sorts numbers in an array by simple selection.
+The above three points can be implemented as one program.
+
+4. Random filling and transposition of a two dimensional array. Values should be double type from -100.0 to 100.0. 
+   The size of matrix cannot be greater than 20x20. Precision of printing is 9 decimal places and width should be 12.
+5. Write a program of multiplication of two matrices. The size of matrices cannot be greater than 20x20. 
+   Precision of printing is 9 decimal places and width should be 12. Remember that the number of columns in the right
+    matrix must be equal to the number of rows in the left matrix. The result of multiplication is a matrix with the
+    number of rows equal to the number of rows in the left matrix and the number of columns equal to the number of
+6. snake-filling a two-dimensional array with sizes defined by constants, e.g.
+ 
+|     1	 10   11	  20   21 |
+|     2	  9   12	  19   22 |
+|     3	  8   13	  18   23 |
+|     4	  7   14	  17   24 |
+|     5    6   15	  16   25 |
+The size shouldn't be greater than 20x20. Width should be 5.
+
+Random value
+1. Old Approach
+
+Implement a function that returns a vector (whose length is a parameter) of random integers from the interval [a, b].
+
+#include <stdlib>
+#include <ctime>
+
+Before you use the random number generator for the first time:
+std::srand(std::time(0));
+
+Every time we need another random number use:
+int random_value = std::rand();
+
+You get a number between 0 and RAND_MAX
+
+RAND_MAX = 0x7fff
+
+
+
+2. Contemporary Approach
+
+Implement a function that returns a vector (whose length is a parameter) of random integers from the interval [a, b].
+
+Use the <random> library to generate random numbers:
+1. First include libraries:
+
+#include <random>
+#include <chrono>  
+#include <limits>
+
+2. Create function
+
+int get_random_in_range(int from = std::numeric_limits<int>::min(), int to = std::numeric_limits<int>::max())
+{
+    static std::mt19937 generator(std::chrono::system_clock::now().time_since_epoch().count());
+    std::uniform_int_distribution<int> distribution(from, to);
+    return distribution(generator);
+}
+
+
+
