@@ -16,8 +16,7 @@ void linear(){
 }
 
 void double_linear(){
-    std::cout<<"Placeholder";
-    /*int a1 = 0,b1 = 0,a2 = 0,b2 = 0;
+    int a1 = 0,b1 = 0,a2 = 0,b2 = 0;
     std::cout<<"A1 = ";
     std::cin>>a1;
     std::cout<<"B1 = ";
@@ -26,10 +25,11 @@ void double_linear(){
     std::cin>>a2;
     std::cout<<"B2 = ";
     std::cin>>b2;
-    if(a1==0 || a2==0){
-        std::cout<<"A can't be 0";
+    if((a1==0 || a2==0) && (a1 == a2 || b1 != b2) && (a1 == a2 || b1 == b2)){
+        std::cout<<"Solution doesn't exist";
         return;
-    }*/
+    }
+    std::cout<<"("<<(b2-b1)/(a1-a2)<<","<<a1*(b2-b1)/(a1-a2)+b1<<")\n";
 }
 
 void quadratic(){
