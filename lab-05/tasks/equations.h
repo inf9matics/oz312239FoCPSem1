@@ -3,7 +3,7 @@
 
 
 void linear(){
-    int a = 0,b = 0;
+    double a = 0,b = 0;
     std::cout<<"A = ";
     std::cin>>a;
     if(a==0){
@@ -16,7 +16,7 @@ void linear(){
 }
 
 void double_linear(){
-    int a1 = 0,b1 = 0,a2 = 0,b2 = 0;
+    double a1 = 0,b1 = 0,a2 = 0,b2 = 0;
     std::cout<<"A1 = ";
     std::cin>>a1;
     std::cout<<"B1 = ";
