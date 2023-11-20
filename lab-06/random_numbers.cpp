@@ -30,7 +30,6 @@ int main(int argc, char* argv[]){ // .\lab-06\random_numbers <number of numbers>
     double min = std::stod(argv[2]);
     double max = std::stod(argv[3]);
     int nInLine = 0;
-    std::string argv4;
     std::string argv5 = " ";
 
     if(argc == 6){ //Didn't find a better way to do it, so I had to do it badly
