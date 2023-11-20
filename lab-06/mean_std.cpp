@@ -26,14 +26,6 @@ int main(int argc, char*argv[]){ // .\lab-06\mean_std -i *** -o ***
         return 1; 
     }
 
-    std::ofstream output;
-    if(argc == 5){
-        fileName = argv[4];
-        fileName = ".\\lab-06\\" + fileName + ".txt";
-        output.open(fileName,std::ios::out);
-        std::cout.rdbuf(output.rdbuf());
-    }
-
     while (std::getline(input, line)){
         std::istringstream iss(line);
         double number = 0;
@@ -47,10 +39,23 @@ int main(int argc, char*argv[]){ // .\lab-06\mean_std -i *** -o ***
         mean += num;
     }
 
+    if(n == 0){
+        std::cout<< "Input file doesn't contain any real numbers\n";
+        return 1;
+    }
+
     mean = mean / n;
 
     for (double num : vec){
         dev += pow(num - mean, 2); 
+    }
+
+    std::ofstream output;
+    if(argc == 5){
+        fileName = argv[4];
+        fileName = ".\\lab-06\\" + fileName + ".txt";
+        output.open(fileName,std::ios::out);
+        std::cout.rdbuf(output.rdbuf());
     }
 
     std::cout<< "Mean = " << mean << "\n"
