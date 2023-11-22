@@ -5,9 +5,11 @@
 #include <sstream>
 #include <cmath>
 
-int main(int argc, char*argv[]){ // .\lab-06\mean_std -i *** -o ***
-    if(argc < 3 || argc > 5){
-        std::cout<<"Proper usage ---> mean_std -i <input file name> [-o <output file name>]\n";
+int main(int argc, char *argv[])
+{ // .\lab-06\mean_std -i *** -o ***
+    if (argc < 3 || argc > 5)
+    {
+        std::cout << "Proper usage ---> mean_std -i <input file name> [-o <output file name>]\n";
         return 1;
     }
 
@@ -21,45 +23,53 @@ int main(int argc, char*argv[]){ // .\lab-06\mean_std -i *** -o ***
     fileName = ".\\lab-06\\" + fileName + ".txt";
     input.open(fileName);
 
-    if(!input.good()){
-        std::cout<< "Improper input file name\n";
-        return 1; 
+    if (!input.good())
+    {
+        std::cout << "Improper input file name\n";
+        return 1;
     }
 
-    while (std::getline(input, line)){
+    while (std::getline(input, line))
+    {
         std::istringstream iss(line);
         double number = 0;
-        while (iss >> number) {
+        while (iss >> number)
+        {
             vec.push_back(number);
         }
     }
 
-    for (double num : vec){
+    for (double num : vec)
+    {
         n++;
         mean += num;
     }
 
-    if(n == 0){
-        std::cout<< "Input file doesn't contain any real numbers\n";
+    if (n == 0)
+    {
+        std::cout << "Input file doesn't contain any real numbers\n";
         return 1;
     }
 
     mean = mean / n;
 
-    for (double num : vec){
-        dev += pow(num - mean, 2); 
+    for (double num : vec)
+    {
+        dev += pow(num - mean, 2);
     }
 
     std::ofstream output;
-    if(argc == 5){
+    if (argc == 5)
+    {
         fileName = argv[4];
         fileName = ".\\lab-06\\" + fileName + ".txt";
-        output.open(fileName,std::ios::out);
+        output.open(fileName, std::ios::out);
         std::cout.rdbuf(output.rdbuf());
     }
 
-    std::cout<< "Mean = " << mean << "\n"
-             << "Standard deviation = " << sqrt(dev / (n - 1)) << "\n";
+    std::cout << "Mean = " << mean << "\n"
+              << "Standard deviation = " << sqrt(dev / (n - 1)) << "\n";
 
     return 0;
 }
+// Very similar code to Mr Gryszko's code with the same mistakes. 

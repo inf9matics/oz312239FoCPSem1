@@ -58,3 +58,5 @@ int main(int argc, char* argv[]){ // .\lab-06\frequency -i *** -o ***
 
     return 0;
 }
+
+// Very similar code to Mr Gryszko's code with the same mistakes. Both of you didn't ry to compile iy.
