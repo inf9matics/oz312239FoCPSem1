@@ -1,0 +1,61 @@
+All programs are to have a multi-module structure. Only the main function can be in the main cpp, 
+the rest (data types and functions) must be in separate *.h and *.cpp files. 
+
+
+Recursive functions
+1.	- A Hanoi Towers problem. Program must be called:
+        `hanoi <number of disks> <start peg> <end peg> <temporary peg>`   
+2.	- A function that determines a given Fibonacci number recursively with cache. Program must be called:
+        `fib <number>`  
+
+Structures 
+3.  - point in two-dimensional space as a structure (x, y)
+    - function generating a random point
+    - function to fill an array with random points (double -100 to 100)
+    - function to find the distance between two points
+    - function to find the pair of furthest points in a file
+    - function to determine the area of a triangle with vertices in three points
+    - function to find the triangle with the largest area of all possible triangles
+    - functions to write the result to a file
+    The program must be called:
+        `triangle <number of points> <output file>`
+4. - vectors as 2D matrix of double
+    - addition, subtraction and multiplying of two-dimensional matrices
+    - matrices must be in 2 separate text files, eg. a.txt and b.txt
+    - the program should be called:
+        `matrix <operation> <matrix a> <matrix b> <output file>`
+    where:
+        - operation - one of the following: add, sub, mul
+        - matrix a - file name with matrix a
+        - matrix b - file name with matrix b
+        - output file - file name to save the result
+    - the number of numbers determines the number of columns in the matrix
+    - the number of lines is determined by the number of lines in the file
+    - the numbers in the file are separated by a space
+    - the program should check if the matrices are of the size that allows the operation to be performed
+    - the program should check if the number of columns is the same in each row
+    - the program should break if the format is wrong with info.
+
+5.  Complex number calculator (as structure of two doubles)
+    - addition, subtraction, multiplication, division, multiplication, modules nad arguments
+    The program should be called:
+        `complex <operation> <complex number 1> <complex number 2>`
+    where:
+        - operation - one of the following: add, sub, mul, div, mod, arg
+        - complex number - two real numbers separated by a space
+
+6.  Own time structure representing hours, minutes and seconds of time (integers)
+    - adding, subtracting time
+    - comparing time
+    - converting time to seconds
+    - converting seconds to time
+    - the program should be called:
+        `time <operation> <time 1> [<time 2>]`
+    where:
+        - operation - one of the following: add, sub, cmp, tosec, totime
+        - time - three numbers separated by a space: hours, minutes, seconds
+    - in case of tosec operation, the second time is not required and should be omitted
+    - in case of totime <time 1> should be a just number of seconds
+
+Some Math
+https://polslpl-my.sharepoint.com/:b:/g/personal/slasota_polsl_pl/EWEDlMtWk1ZCskd8ud7kvqwB7E8kJlp4e08gg8Vd3kp3HA?e=UuVPsX
