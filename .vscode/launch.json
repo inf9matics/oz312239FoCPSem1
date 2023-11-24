@@ -1,7 +1,6 @@
 {
   "version": "0.2.0",
   "configurations": [
-    
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
@@ -9,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/28lun/OneDrive/Dokumenty/GitHub/6d440384-gr03-repo/lab-04",
-      "program": "c:/Users/28lun/OneDrive/Dokumenty/GitHub/6d440384-gr03-repo/lab-04/build/Debug/outDebug",
+      "cwd": "c:/Users/28lun/OneDrive/Dokumenty/GitHub/6d440384-gr03-repo/lab-07/hanoi",
+      "program": "c:/Users/28lun/OneDrive/Dokumenty/GitHub/6d440384-gr03-repo/lab-07/hanoi/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

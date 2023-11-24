@@ -111,6 +111,8 @@
     "span": "cpp",
     "sstream": "cpp",
     "variant": "cpp",
-    "fstream": "cpp"
-  }
+    "fstream": "cpp",
+    "ranges": "cpp"
+  },
+  "cmake.sourceDirectory": "C:/Users/28lun/OneDrive/Dokumenty/GitHub/6d440384-gr03-repo/lab-05/Teacher Solution/IsPrime"
 }
