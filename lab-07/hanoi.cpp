@@ -1,11 +1,19 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "hanoi_l.h"
+
+void hanoi_l(int n, std::string start, std::string end, std::string temp)
+{
+    if (n > 0) {
+        hanoi_l(n - 1, start, temp, end); 
+        std::cout << "Move disk " << n << " from " << start << " to " << end << "\n";
+        hanoi_l(n - 1, temp, end, start); 
+    }
+}
 
 int main(int argc, char* argv[])
 {
-    if (argc > 6)
+    if (argc < 5)
     {
         std::cout << "Proper use of a program:\n"
                   << "hanoi <number of disks> <start peg> <end peg> <temporary peg> [<outfile>]\n";
@@ -21,13 +29,12 @@ int main(int argc, char* argv[])
     if(argc == 6)
     {
         std::string fileName = argv[5];
-        fileName = ".\\lab-06\\" + fileName + ".txt";
+        fileName = ".\\lab-07\\" + fileName + ".txt";
         output.open(fileName, std::ios::in);
         std::cout.rdbuf(output.rdbuf());
     }
 
     hanoi_l(n, start, end, temp);
-}
 
-/*- A Hanoi Towers problem. Program must be called:
-        `hanoi <number of disks> <start peg> <end peg> <temporary peg>` */
+    return 0;
+}
