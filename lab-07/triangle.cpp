@@ -63,7 +63,7 @@ std::pair<point, point> furthestPoints(point points[], int n)
 
 double triangle(const point& p1, const point& p2, const point& p3)
 {
-    return 0.5 * abs(p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
+    return 0.5 * std::fabs(p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
 }
 
 std::array<point, 3> findLargestTriangle(point points[], int n)
