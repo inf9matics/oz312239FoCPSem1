@@ -110,13 +110,6 @@ int main(int argc, char* argv[])
     }
     
     std::string op = argv[1];
-
-    if(op != "add" && op != "sub" && op != "mul")
-    {
-        std::cerr << "Proper operation names:\n"
-                  << "add(for adding), sub(for subtracting), mul(for multiplying)\n";
-        return 1;
-    }
     
     int countC = 0;
     int countR = 0;
@@ -179,19 +172,23 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    if(op == "add")
+    if (op == "add") 
     {
         add(m1, m2);
-    }
-
-    if(op == "sub")
+    } 
+    else if (op == "sub") 
     {
         subtract(m1, m2);
-    }
-
-    if(op == "mul")
+    } 
+    else if (op == "mul") 
     {
         multiply(m1, m2);
+    } 
+    else 
+    {
+        std::cerr << "Proper operation names:\n"
+                << "add(for adding), sub(for subtracting), mul(for multiplying)\n";
+        return 1;
     }
 
     return 0;

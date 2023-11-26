@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include <complex.h>
 
 struct comp
 {
@@ -53,6 +52,13 @@ void multiply(comp c1, comp c2)
 
 void divide(comp c1, comp c2)
 {
+    double denominator = pow(c2.x, 2) + pow(c2.y, 2);
+
+    if (denominator == 0) {
+        std::cerr << "Error: Division by zero.\n";
+        exit(1);
+    }
+
     std::cout << " Result of division = ";
 
     if((c1.y * c2.x - c1.x * c2.y) / (pow(c2.x, 2) + pow(c2.y, 2)) >= 0)
@@ -73,11 +79,9 @@ void modulus(comp c1)
 
 void argument(comp c1)
 {
-    std::complex<double> c (c1.x, c1.y);
- 
     std::cout << "Argument = ";
 
-    std::cout << std::arg(c) <<"\n";
+    std::cout << atan2(c1.y, c1.x) << "\n";
 }
 
 
