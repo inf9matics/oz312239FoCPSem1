@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
 
     if(n < 1)
     {
-        std::cout << "Number of points can't be lower than zero!\n";
+        std::cerr << "Number of points can't be lower than zero!\n";
         return 1;
     }
 
@@ -121,7 +121,8 @@ int main(int argc, char* argv[])
     }
 
     std::cout << "List of Points:\n";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         std::cout << "(" << points[i].x << ", " << points[i].y << ")\n";
     }
     std::cout << "\n";
@@ -130,7 +131,7 @@ int main(int argc, char* argv[])
     {
         std::pair<point, point> furthestPts = furthestPoints(points, n);
         std::cout << "Furthest Points: (" << furthestPts.first.x << ", " << furthestPts.first.y << ") and ("
-                  << furthestPts.second.x << ", " << furthestPts.second.y << ")\n";
+                  << fruthestPts.second.x << ", " << furthestPts.second.y << ")\n";
         
         std::cout << "Distance Between Furthest Points: " << calculateDistance(furthestPts.first, furthestPts.second) << "\n\n";
     } 
@@ -151,8 +152,8 @@ int main(int argc, char* argv[])
         std::cout << "Area of the Largest Triangle: " << triangle(largestTriangle[0], largestTriangle[1], largestTriangle[2]) << "\n";
     } 
     else 
-    {
-        std::cout << "Insufficient number of points to calculate triangle area.\n";
+{
+            std::cout << "Insufficient number of points to calculate triangle area.\n";
     }
 
     return 0;
