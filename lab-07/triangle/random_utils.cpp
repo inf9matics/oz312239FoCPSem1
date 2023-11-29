@@ -13,6 +13,8 @@ point genRandom()
     p.x = get_random_in_range(-100, 100);
     p.y = get_random_in_range(-100, 100);
     return p;
+    //shortcut: 
+    return {get_random_in_range(-100, 100), get_random_in_range(-100, 100)};
 }
 
 void map(point points[], int n) 

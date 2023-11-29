@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
     if(argc == 6)
     {
         std::string fileName = argv[5];
-        fileName = ".\\lab-07\\" + fileName + ".txt";
+        fileName = ".\\lab-07\\" + fileName + ".txt";//Stupid restriction
         output.open(fileName, std::ios::in);
         std::cout.rdbuf(output.rdbuf());
     }

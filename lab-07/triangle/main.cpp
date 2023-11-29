@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    point points[n];
+    point points[n];//In project I'll do not accept this. It is not in the standard.
 
     map(points, n);
     
@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
     if(argc == 3)
     {
         std::string fileName = argv[2];
-        fileName = ".\\lab-07\\" + fileName + ".txt";
+        fileName = ".\\lab-07\\" + fileName + ".txt";//Awful path!!!!!!!!!!!!!!!!!!!!!
         output.open(fileName, std::ios::out);
         std::cout.rdbuf(output.rdbuf());
     }

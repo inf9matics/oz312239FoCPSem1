@@ -6,6 +6,8 @@ I know voids aren't the best, but my thought process was that it was much easier
 display result instantly, without checking in main for sign of a imaginary part.
 Of course, I'm not sure which one is better
 */
+// Wrong thought. Read DRY rules.
+// https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 
 void add(comp c1, comp c2) 
 {

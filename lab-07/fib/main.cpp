@@ -1,6 +1,7 @@
 #include "fib.h"
 #include <iostream>
 #include <vector>
+#include <string> // std::stoi
 
 bool isNumber(const std::string& s)
 {
@@ -32,6 +33,7 @@ int main(int argc, char* argv[])
     int n = std::stoi(argv[1]);
 
     std::vector<int> vec{0, 0, 1}; // I hope I understood correctly what cache meant in this exercise
+    // Yes, but why it is here? It should be in fib.cpp
     
     fib(n - 1, 0, 1, vec);
     

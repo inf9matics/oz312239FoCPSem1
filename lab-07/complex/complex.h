@@ -8,6 +8,7 @@ struct comp
     double x, y;
 };
 
+// Awful. They do not return results.
 void add(comp c1, comp c2);
 void subtract(comp c1, comp c2);
 void multiply(comp c1, comp c2);
