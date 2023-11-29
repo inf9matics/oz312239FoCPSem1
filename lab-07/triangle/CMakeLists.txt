@@ -1,0 +1,1 @@
+add_executable(triangle main.cpp random_utils.cpp geometry.cpp)
