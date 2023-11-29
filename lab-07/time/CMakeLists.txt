@@ -1,0 +1,1 @@
+add_executable(time main.cpp calculations.cpp)

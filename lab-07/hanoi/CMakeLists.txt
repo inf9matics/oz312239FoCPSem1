@@ -1,0 +1,1 @@
+add_executable(hanoi main.cpp hanoi.cpp)

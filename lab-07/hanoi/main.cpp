@@ -1,21 +1,25 @@
+#include "hanoi.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 
-void hanoi_l(int n, std::string start, std::string end, std::string temp)
+bool isNumber(const std::string& s)
 {
-    if (n > 0) {
-        hanoi_l(n - 1, start, temp, end); 
-        std::cout << "Move disk " << n << " from " << start << " to " << end << "\n";
-        hanoi_l(n - 1, temp, end, start); 
+    for (char const &ch : s) 
+    {
+        if (std::isdigit(ch) == 0) 
+        {
+            return false;
+        }
     }
+    return true;
 }
 
 int main(int argc, char* argv[])
 {
-    if (argc < 5)
+    if (argc < 5 || !isNumber(argv[1]))
     {
-        std::cout << "Proper use of a program:\n"
+        std::cerr << "Proper use of a program:\n"
                   << "hanoi <number of disks> <start peg> <end peg> <temporary peg> [<outfile>]\n";
         return 1;
     }

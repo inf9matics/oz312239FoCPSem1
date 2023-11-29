@@ -10,3 +10,7 @@ include(CPack)
 
 add_subdirectory(lab-07/complex)
 add_subdirectory(lab-07/triangle)
+add_subdirectory(lab-07/fib)
+add_subdirectory(lab-07/hanoi)
+add_subdirectory(lab-07/matrix)
+add_subdirectory(lab-07/time)

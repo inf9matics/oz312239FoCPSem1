@@ -1,24 +1,17 @@
+#include "fib.h"
 #include <iostream>
 #include <vector>
 
-bool isNumber(const std::string& s){
-    for (char const &ch : s) {
+bool isNumber(const std::string& s)
+{
+    for (char const &ch : s) 
+    {
         if (std::isdigit(ch) == 0) 
+        {
             return false;
+        }
     }
     return true;
-}
-
-int fib(int n, int a, int b, std::vector<int>& vec){
-    if (n <= 1)
-    {
-        return 0;
-    }
-
-    int result = a + b;
-    vec.push_back(result);
-
-    return fib(n - 1, b, a + b, vec);
 }
 
 int main(int argc, char* argv[])

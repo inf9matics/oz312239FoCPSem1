@@ -2,21 +2,40 @@
 #include "random_utils.h"
 #include <iostream>
 #include <fstream>
+#include <string>
+
+bool isNumber(const std::string& s)
+{
+    for (char const &ch : s) 
+    {
+        if (std::isdigit(ch) == 0) 
+        {
+            return false;
+        }
+    }
+    return true;
+}
 
 int main(int argc, char* argv[])
 {
     if(argc < 2 || argc > 3)
     {
-        std::cout << "Proper use of a program:\n"
+        std::cerr << "Proper use of a program:\n"
                   << "triangle <number of points> <output file>\n";  
         return 1;
     }
 
+    if(!isNumber(argv[1]) || std::stoi(argv[1]) < 1)
+    {
+        std::cerr << "Error: Wrong input of a number!\n";
+        return 1;
+    }
+    
     int n = std::stoi(argv[1]);
 
     if(n < 1)
     {
-        std::cout << "Number of points can't be lower than zero!\n";
+        std::cerr << "Number of points can't be lower than zero!\n";
         return 1;
     }
 
