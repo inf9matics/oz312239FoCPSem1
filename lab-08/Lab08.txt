@@ -1,0 +1,32 @@
+Maps
+1. 	Write a program that reads text from a file and counts the frequency of each word in the file. 
+	The program should then write the result to a file, sorted by frequency. 
+	The output file should use the following format:
+	```
+		<word1> <count1>
+		<word2> <count2>
+		...
+	```
+	The program should take two command line arguments: 
+		counter <input file> <output file>
+2. Counting the frequency of word pairs in the file.
+	The output file should use the following format:
+	```
+		<phrase> <count1>
+		<phrase> <count2>
+		...
+	```
+	The program should take two command line arguments: 
+		phrase_counter <input file> <output file>
+		
+3. Generating a text in (pseudo)English randomly based on frequency of word pairs (from task 2).
+	The program should take three command line arguments: 
+		text_generator <input file> <output file> <number of words to generate>
+	The program should generate a text of the specified length (number of words) and write it to the output file.
+
+3. Generating index (list of unique words with line numbers in which they occur) (from task 1).
+	The program should take two command line arguments: 
+		index_generator <input file> <output file>
+	The program should generate a text of the specified length (number of words) and write it to the output file.
+
+A text file e.g. Ulysses by Joyce is included for tests.
