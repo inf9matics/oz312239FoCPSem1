@@ -2,8 +2,9 @@
 #include <fstream>
 #include <sstream>
 #include <map>
-#include <vector>
+// #include <vector>
 #include <algorithm>
+#include <list>
 
 std::string cleanWord(const std::string& word) 
 {
@@ -63,12 +64,19 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    std::vector<std::pair<std::string, int>> sortedWords(wordFrequency.begin(), wordFrequency.end());
+    // ordering a vector of pairs by second element is slow std::swap
 
-    std::sort(sortedWords.begin(), sortedWords.end(), [](const auto& a, const auto& b) 
+    // std::vector<std::pair<std::string, int>> sortedWords(wordFrequency.begin(), wordFrequency.end());
+    std::list<std::pair<std::string, int>> sortedWords(wordFrequency.begin(), wordFrequency.end());
+
+    // std::sort(sortedWords.begin(), sortedWords.end(), [](const auto& a, const auto& b) 
+    // {
+    //     return a.second > b.second;
+    // });
+    sortedWords.sort([](const auto& a, const auto& b) 
     {
         return a.second > b.second;
-    });
+    }); // no swapping data only pointers to next and prev elements
 
     for (const auto& pair : sortedWords) 
     {
@@ -77,3 +85,4 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+//Not multi-module project. To much code in main fuction. Read DRY principle.

@@ -2,8 +2,9 @@
 #include <fstream>
 #include <sstream>
 #include <map>
-#include <vector>
-#include <algorithm>
+// #include <vector>
+#include <list>
+// #include <algorithm>
 
 std::string cleanWord(const std::string& word) 
 {
@@ -50,7 +51,7 @@ int main(int argc, char *argv[])
                 std::string cleanedWord1 = cleanWord(word1);
                 std::string cleanedWord2 = cleanWord(word2);
 
-                phrase = cleanedWord1 + " " + cleanedWord2;
+                phrase = cleanedWord1 + " " + cleanedWord2;// Not too much flexible. Inconvenient in next task.
 
                 if(!cleanedWord1.empty() && !cleanedWord2.empty())
                 {
@@ -71,9 +72,14 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    std::vector<std::pair<std::string, int>> sortedPhrases(phraseFrequency.begin(), phraseFrequency.end());
+    // std::vector<std::pair<std::string, int>> sortedPhrases(phraseFrequency.begin(), phraseFrequency.end());
+    std::list<std::pair<std::string, int>> sortedPhrases(phraseFrequency.begin(), phraseFrequency.end());
 
-    std::sort(sortedPhrases.begin(), sortedPhrases.end(), [](const auto& a, const auto& b)
+    // std::sort(sortedPhrases.begin(), sortedPhrases.end(), [](const auto& a, const auto& b)
+    // {
+    //     return a.second > b.second;
+    // });
+    sortedPhrases.sort([](const auto& a, const auto& b)
     {
         return a.second > b.second;
     });
@@ -85,3 +91,4 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+// Only one module project and too much code in main function. Read DRY principle.  
