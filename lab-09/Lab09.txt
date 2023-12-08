@@ -1,0 +1,29 @@
+Pointers & references
+
+1. Rewrite some program with classical arrays from lab-04 using pointers to variables & pointers to arrays and
+    its entries.
+        - filling the array *( tab + i) = rand() ;
+        - writing out the array cout << *(tab + i) ;
+    - passing the array by pointers
+        - function that fills an array
+        - function writing the array
+    - function summing array (loop and recursion)
+
+Pointers to functions and lambda expressions
+2. Implement in separate module (integral.cpp + integral.h) 3 basic method of numerical integration 
+    (rectangle, trapezoid and Simpson). Each method should be implemented as a function with that
+    takes as arguments: pointer to function, lower limit, upper limit and number of intervals. 
+    Functions should return the value of the integral as double.
+    Define structure that hold the description of the method (name, pointer to function, range of integrations & 
+    number of intervals). The number of intervals should be at least 1000.
+
+    Define array of structures for function sin (in range 0 to pi), cos (in range -pi/2 tp pi/2). 
+    Check the results for each method. They have to give the result close to 2.0.
+    Add own function that implement some polynomial in Horner scheme, e.g. p(x) = (((x - 1) * x + 1) * x - 1) * x + 1.
+    Integrate it in range -1 to 1. Add the proper entry the array of structures. 
+    Add to the array entries for functions: exp, log, log10, sqrt, 
+    and 1/x, x^2, x^3, x^4, x^5, x^6, x^7, x^8, x^9, x^10 in a form of lambda expressions. Integrate them in range 0 to 1.0, 
+    or 0.1 to 1 for functions that are not defined in x = 0.0.
+	
+Math: https://polslpl-my.sharepoint.com/:b:/g/personal/slasota_polsl_pl/ETD5JKPNGR5JmTlOvaXsMBwBPf72R8sJk4H3TSVLN6fVxQ?e=C0AgD9
+
