@@ -1,0 +1,1 @@
+add_executable(point_arrays main.cpp functions.cpp)
