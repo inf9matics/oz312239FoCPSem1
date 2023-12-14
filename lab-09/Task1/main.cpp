@@ -56,3 +56,4 @@ int main(int argc, char *argv[]) //.\build\lab-09\Task1\point_arrays 10 test rec
 
     return 1;
 }
+// Nice, but task 2 was more important.

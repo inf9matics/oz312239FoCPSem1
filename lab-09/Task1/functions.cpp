@@ -1,3 +1,7 @@
+#include <random> // include in the reasonable place
+#include <chrono>
+#include <iostream>
+#include <iomanip>
 #include "functions.h"
 
 double get_random_in_range(double from, double to){
