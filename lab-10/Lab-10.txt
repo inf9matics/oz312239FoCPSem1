@@ -1,0 +1,46 @@
+Pointers to functions and lambda expressions
+1. Implement in separate module (integral.cpp + integral.h) 3 basic method of numerical integration 
+    (rectangle, trapezoid and Simpson). Each method should be implemented as a function with that
+    takes as arguments: pointer to function, lower limit, upper limit and number of intervals. 
+    Functions should return the value of the integral as double.
+    Define structure that hold the description of the method (name, pointer to function, range of integrations & 
+    number of intervals). The number of intervals should be at least 1000.
+
+    Define array of structures for function sin (in range 0 to pi), cos (in range -pi/2 tp pi/2). 
+    Check the results for each method. They have to give the result close to 2.0.
+    Add own function that implement some polynomial in Horner scheme, e.g. p(x) = (((x - 1) * x + 1) * x - 1) * x + 1.
+    Integrate it in range -1 to 1. Add the proper entry the array of structures. 
+    Add to the array entries for functions: exp, log, log10, sqrt, 
+    and 1/x, x^2, x^3, x^4, x^5, x^6, x^7, x^8, x^9, x^10 in a form of lambda expressions. Integrate them in range 0 to 1.0, 
+    or 0.1 to 1 for functions that are not defined in x = 0.0.
+	
+Math: https://polslpl-my.sharepoint.com/:b:/g/personal/slasota_polsl_pl/ETD5JKPNGR5JmTlOvaXsMBwBPf72R8sJk4H3TSVLN6fVxQ?e=C0AgD9
+
+
+Graphs
+https://polslpl-my.sharepoint.com/:b:/g/personal/slasota_polsl_pl/EZVes2eRTNlKjNPZSUymxHABqWOmWOSlveBJIHyTz3r3qg?e=0mzUbM
+
+In lab-10 you have 3 text files g1.txt g2.txt g3.txt.
+In each file the description of a graph is 
+<no nodes> <no edges>
+<edge 1 start> <edge 1 end>
+<edge 2 start> <edge 2 end>
+...
+<edge n start> <edge n end>
+
+The nodes are numbered starting from 0.
+
+Write a program that read the graph from the file and create the adjacency matrix and adjacency list.
+Report to the output file the adjacency matrix and adjacency list.
+Write functions that traverse the graphs (represented in both forms) in depth and breadth first search method. 
+These functions should report the order of visiting nodes to the output files.
+Program should be called as:
+graph.exe <graph file> <output file> <start node>
+
+As as a FIFO queue use std::queue and as a LIFO stack use std::stack.
+
+
+
+
+
+
