@@ -1,0 +1,1 @@
+add_executable(numerical_integration main.cpp integral.cpp)
