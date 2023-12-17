@@ -17,14 +17,15 @@ double rectangleMethod(double (*f)(double), double a, double b, int n) //a = low
 double trapezoidMethod(double (*f)(double), double a, double b, int n)
 {
     double dx = (b - a) / n;
-    double sum = 0;
+    double sum = (f(a) + f(b)) / 2;
 
     for(int i = 1; i < n; i++)
     {
-        double x = a + i * dx + 0.5 * dx;
+        double x = a + i * dx;
         sum += f(x);
     }
 
+    sum *= dx;
     return sum;
 }
 
