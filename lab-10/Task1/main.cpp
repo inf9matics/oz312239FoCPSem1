@@ -3,18 +3,6 @@
 #include <cmath>
 #include "integral.h"
 
-bool isNumber(const std::string& s)
-{
-    for (char const &ch : s) 
-    {
-        if (std::isdigit(ch) == 0) 
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main(int argc, char *argv[]) // .\build\lab-10\Task1\numerical_integration
 {
     if(argc < 3)
@@ -29,7 +17,7 @@ int main(int argc, char *argv[]) // .\build\lab-10\Task1\numerical_integration
     
     int n = 0;
     
-    if(isNumber(argv[2]) /*&& std::stoi(argv[2]) > 999*/)
+    if(isNumber(argv[2]) && std::stoi(argv[2]) > 999)
     {
         n = std::stoi(argv[2]);
     }
@@ -57,7 +45,7 @@ int main(int argc, char *argv[]) // .\build\lab-10\Task1\numerical_integration
         {methodName, std::log, 0.1, 1.0, n},
         {methodName, std::log10, 0.1, 1.0, n},
         {methodName, std::sqrt, 0, 1.0, n},
-        {methodName, [](double x){return 1/x;}, 0.1, 1.0, n},
+        {methodName, [](double x){return 1/x;}, 0.1, 1.0, n}, // For some reason it doesn't work in rectangle method, and I can't figure out why
         {methodName, [](double x){return pow(x, 2);}, 0, 1.0, n},
         {methodName, [](double x){return pow(x, 3);}, 0, 1.0, n},
         {methodName, [](double x){return pow(x, 4);}, 0, 1.0, n},

@@ -1,5 +1,17 @@
 #include "integral.h"
 
+bool isNumber(const std::string& s)
+{
+    for (char const &ch : s) 
+    {
+        if (std::isdigit(ch) == 0) 
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 double rectangleMethod(double (*f)(double), double a, double b, int n) //a = lower limit, b= upper limit
 {
     double dx = (b - a) / n;
