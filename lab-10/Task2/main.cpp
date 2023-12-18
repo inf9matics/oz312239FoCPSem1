@@ -14,8 +14,6 @@ int main(int argc, char *argv[]) //.\build\lab-10\Task2\graph .\lab-10\g1.txt te
         return 1;
     }
 
-    int startNode = std::stoi(argv[3]); // Since all of the source files use only integers, I will use them for convenience 
-
     std::ifstream inputFile(argv[1]);
 
     if(!inputFile.is_open())
@@ -24,7 +22,7 @@ int main(int argc, char *argv[]) //.\build\lab-10\Task2\graph .\lab-10\g1.txt te
         return 1;
     }
 
-    int nOfNodes = 0, nOfEdges = 0;
+    int nOfNodes = 0, nOfEdges = 0; // Since all of the source files use only integers, I will use them for convenience 
 
     inputFile >> nOfNodes >> nOfEdges;
 
@@ -38,7 +36,20 @@ int main(int argc, char *argv[]) //.\build\lab-10\Task2\graph .\lab-10\g1.txt te
         nodeConnections[std::make_pair(node1, node2)] = true;
     }
 
+    inputFile.close();
+
     printAdjacency(nodeConnections, nOfNodes, argv[2]);
+
+    if(isNumber(argv[3]) && (std::stoi(argv[3]) <= nOfNodes || std::stoi(argv[3]) > 0))
+    {
+        traverse(nodeConnections, std::stoi(argv[3]), nOfNodes, argv[2]);
+    }
+    else
+    {
+        std::cerr << "Error: Your starting node is either not in range or not a number!\n";
+        return 1;
+    }
+
 
     return 0;
 }

@@ -64,11 +64,57 @@ void printAdjacency(const std::map<std::pair<int, int>, bool>& nodeConnections, 
     for(int i = 0; i < n; i++)
     {
         outputFile << "\n" << i << " = ";
+        
         for(int j = 0; j < n; j++)
         {
             if(isConnected(nodeConnections, i, j))
             {
                 outputFile << j << ", ";
+            }
+        }
+    }
+    outputFile.close();
+}
+
+bool wasVisited(std::stack<int> visited, int x)
+{
+    while(!visited.empty())
+    {
+        if(visited.top() == x)
+        {
+            return true;
+        }
+
+        visited.pop();
+    }
+
+    return false;
+}
+
+void traverse(const std::map<std::pair<int, int>, bool>& nodeConnections, int initialNode, int n, const std::string& outputFileName)
+{
+    std::ofstream outputFile(outputFileName, std::ios_base::app);
+
+    outputFile << "\n\nTraverse: ";
+    
+    std::stack<int> visited;
+    std::queue<int> queue;
+
+    visited.push(initialNode);
+    queue.push(initialNode);
+    
+    while(!queue.empty())
+    { 
+        int x = queue.front();
+        outputFile << x << ", ";
+        queue.pop();
+
+        for(int j = 0; j < n; j++)
+        {
+            if(!wasVisited(visited, j) && isConnected(nodeConnections, x, j))
+            {
+                queue.push(j);
+                visited.push(j);
             }
         }
     }
