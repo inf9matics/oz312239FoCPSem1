@@ -5,7 +5,7 @@
 #include <utility>
 #include "functions.h"
 
-int main(int argc, char *argv[]) //.\build\lab-10\Task2\graph .\lab-10\g1.txt test 1
+int main(int argc, char *argv[]) //.\build\lab-10\Task2\graph .\lab-10\g3.txt test 0
 {
     if(argc < 4)
     {

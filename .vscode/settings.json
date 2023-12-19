@@ -57,7 +57,9 @@
         "variant": "cpp",
         "complex": "cpp",
         "list": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "codecvt": "cpp",
+        "set": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
