@@ -34,8 +34,6 @@ std::vector<Chromosome> initializePopulation(const std::map<std::pair<std::strin
     for(int i = 0; i < populationSize; i++)
     {   
         population[i].path.push_back(cityNames[get_random_in_range(0, cityNames.size() - 1)]);
-
-        std::cout << population[i].path.back();
         
         while(population[i].path.size() != numCities)
         {
@@ -49,11 +47,9 @@ std::vector<Chromosome> initializePopulation(const std::map<std::pair<std::strin
             else
             {
                 population[i].path.push_back(availableCities[get_random_in_range(0, availableCities.size() - 1)]);
-                std::cout << ", " << population[i].path.back();
             }
             
         }
-        std::cout << std::endl;
     }
 
     return population;
