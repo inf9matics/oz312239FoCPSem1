@@ -3,13 +3,15 @@
 #include <cmath>
 #include "integral.h"
 
+#define _USE_MATH_DEFINES // for using M_PI
+
 int main(int argc, char *argv[]) // .\build\lab-10\Task1\numerical_integration
 {
     if(argc < 3)
     {
         std::cerr << "Proper use of a program:\n"
                   << "integral <method name> <number of intervals>\n"
-                  << "Poper names of methods: Rectangle, Trapezoid, Simpsons\n";
+                  << "Poper names of methods: Rectangle, Trapezoid, Simpsons\n";//typo
         return 1;
     }
 
@@ -38,6 +40,7 @@ int main(int argc, char *argv[]) // .\build\lab-10\Task1\numerical_integration
 
     IntegrationMethod methods[] = 
     {
+        //Why you use old M_PI?
         {methodName, std::sin, 0, M_PI, n},
         {methodName, std::cos, -M_PI / 2.0, M_PI / 2.0, n},
         {methodName, [](double x){return (((x - 1) * x + 1) * x - 1) * x + 1;}, -1.0, 1.0, n},

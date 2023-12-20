@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include <utility>
+#include <string> // For stoi()
 #include "functions.h"
 
 int main(int argc, char *argv[]) //.\build\lab-10\Task2\graph .\lab-10\g3.txt test 0
@@ -53,3 +54,13 @@ int main(int argc, char *argv[]) //.\build\lab-10\Task2\graph .\lab-10\g3.txt te
 
     return 0;
 }
+/*
+You are one of those people who like to write code in their own way. It doesn't matter if it's optimal, as long as it's different from others.
+This is not always good. If you come up with a structure better than adjacency matrix and adjacency list
+then we can immediately write an article for a high-scoring journal.
+You have created your own structure of pair map of nodes and Boolean variable. I don't know why you need this Boolean variable,
+because if there is no pair in the map, there is no connection either.
+In the input file then you simulate adjacency matrix and adjacency list.
+Processing is expensive. The find operation in the map is expensive. There is a reason why everyone has been using adjacency matrix and adjacency list for years.
+They are the fastest to process.
+*/

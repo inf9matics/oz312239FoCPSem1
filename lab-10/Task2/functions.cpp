@@ -91,6 +91,7 @@ bool wasVisited(std::stack<int> visited, int x)
     return false;
 }
 
+//Only BFS. DFS is also required.
 void traverse(const std::map<std::pair<int, int>, bool>& nodeConnections, int initialNode, int n, const std::string& outputFileName)
 {
     std::ofstream outputFile(outputFileName, std::ios_base::app);
