@@ -101,5 +101,7 @@ int calculateDistance(const std::map<std::pair<std::string, std::string>, int>& 
         distance += it->second;
     }
 
-    return distance;
+    return distance;  
 }
+
+

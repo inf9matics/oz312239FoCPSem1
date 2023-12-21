@@ -16,9 +16,8 @@ int get_random_in_range(int from, int to)
 /// @param cityNames      A vector of strings containing the names of all cities.
 /// @param path           A vector of strings representing the current path.
 /// @return A vector of strings containing the names of cities that are available for selection.
-std::vector<std::string> listAvailableCities(const std::map<std::pair<std::string, std::string>, int>& distanceMatrix, const std::vector<std::string>& cityNames, const std::vector<std::string>& path)
+void listAvailableCities(const std::map<std::pair<std::string, std::string>, int>& distanceMatrix, const std::vector<std::string>& cityNames, const std::vector<std::string>& path, std::vector<std::string>& availableCities)
 {
-    std::vector<std::string> availableCities;
     std::string city = path.back();
 
     for(const std::string& candidateCity: cityNames)
@@ -33,8 +32,6 @@ std::vector<std::string> listAvailableCities(const std::map<std::pair<std::strin
             availableCities.push_back(candidateCity);
         }
     }
-
-    return availableCities;
 }
 
 /// @brief Checks if the last city in the path has a valid connection back to the first city based on the distance matrix.
@@ -61,17 +58,19 @@ std::vector<Chromosome> initializePopulation(const std::map<std::pair<std::strin
 
     for(int i = 0; i < populationSize; i++) // Function that randomly fills chromosome's paths
     {   
-        std::string randomCity = cityNames[get_random_in_range(0, cityNames.size() - 1)];
+        std::string randomCity = cityNames[get_random_in_range(0, numCities - 1)];
         population[i].path.push_back(randomCity); 
         
         while(population[i].path.size() != numCities)
         {
-            std::vector<std::string> availableCities = listAvailableCities(distanceMatrix, cityNames, population[i].path);
+            std::vector<std::string> availableCities;
+
+            listAvailableCities(distanceMatrix, cityNames, population[i].path, availableCities);
 
             if(availableCities.empty()) //In case there would be no available cities, the whole path is cleared to be filled once again
             {
                 population[i].path.clear();
-                population[i].path.push_back(cityNames[get_random_in_range(0, cityNames.size() - 1)]);
+                population[i].path.push_back(randomCity);
             }
             else
             {
@@ -84,7 +83,7 @@ std::vector<Chromosome> initializePopulation(const std::map<std::pair<std::strin
             population[i].path.clear();
             i--;
         }
-        else
+        else if(randomCity != population[i].path.back())
         {
             population[i].path.push_back(randomCity);
         }
@@ -111,12 +110,11 @@ Chromosome crossover(const std::map<std::pair<std::string, std::string>, int>& d
         child.path.push_back(parent1.path[i]);
     }
     
-    std::vector<std::string> availableCities = listAvailableCities(distanceMatrix, parent2.path, child.path);
-
-    // Copying rest of the path from the second parent
-    for(const std::string& city : availableCities)
+    for(int i = 0; i < numCities - crossoverPoint; i++)
     {
-        child.path.push_back(city);
+        std::vector<std::string> availableCities;
+        listAvailableCities(distanceMatrix, parent2.path, child.path, availableCities);
+        child.path.push_back(availableCities[0]);
     }
 
     if(!pathBack(distanceMatrix, child.path))

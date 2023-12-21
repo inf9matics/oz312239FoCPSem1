@@ -8,16 +8,16 @@
 #include "utils.h"
 #include "geneticAlgorithm.h"
 
-int main(int argc, char *argv[])
+int main(/*int argc, char *argv[]*/)
 {
     // Temporary solution for debugging
-    /*std::string inputFileName = "input.txt"; 
+    std::string inputFileName = "input.txt"; 
     std::string outputFileName = "output.txt";
-    int generations = 200;
-    int populationSize = 50;*/
+    int generations = 30;
+    int populationSize = 1000;
 
     // Checks for proper input values
-    if(argc < 9) 
+    /*if(argc < 9) 
     {
         std::cerr << "Proper use of the program:\n"
                   << "project.exe -i <input file name> -o <output file name> -g <number of generations> -n <number of individuals in a generation(at least 100)>\n";
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     int generations = std::stoi(argv[6]);
-    int populationSize = std::stoi(argv[8]);
+    int populationSize = std::stoi(argv[8]);*/
 
     std::map<std::pair<std::string, std::string>, int> distanceMatrix = readInputFile(inputFileName);
 
