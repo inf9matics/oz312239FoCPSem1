@@ -1,0 +1,11 @@
+Graphs - shortest path search, Dijkstra's algroithm
+
+Implement a program to find the shortest path in a graph using Dijkstra's algorithm. The graphs are in the files input.txt, input2.txt and input.txt. A first line contains leter U|D where U means undirected graph, and D - directed graph. Next line starts with data type "S:<no>" and "D:<no>" denoting the start node and the destination node, respectively. These data are followed by a description of the graph topology as 3 numbers: the first two are branch nodes and the third is the distance.
+
+For implementation, a structure called a heap is needed. By default, the heap is a self-organizing structure that gives quick access to the largest element. In this algorithm, we need a modified heap giving the minimum value as to the distance. You can use std::priority_queue for this. (https://en.cppreference.com/w/cpp/container/priority_queue)
+
+
+Additional data for Dijkstra algorithm:
+https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+and
+https://polslpl-my.sharepoint.com/:b:/g/personal/slasota_polsl_pl/EVX33mvnqmNNnkTilJGWgW0BNfIsu93X0m0PsNMur8_ldA?e=J05OJS
