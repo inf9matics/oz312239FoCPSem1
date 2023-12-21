@@ -105,3 +105,7 @@ int main(/*int argc, char *argv[]*/)
     outputFile.close();
     return 0;
 }
+
+// There is a lot of not optimal overuse of std::find in the code.
+// I do not like it. Why you use it so much? It is not efficient. And not necessary.
+// Use proper model of data.
