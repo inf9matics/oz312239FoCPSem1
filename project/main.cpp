@@ -37,6 +37,7 @@ int main(/*int argc, char *argv[]*/)
     int generations = std::stoi(argv[6]);
     int populationSize = std::stoi(argv[8]);*/
 
+    // Reading data from a file
     std::vector<std::string> cityNames = readInputFile(inputFileName, distanceMatrix, cities);
 
     // Initialization of population
@@ -104,7 +105,3 @@ int main(/*int argc, char *argv[]*/)
     outputFile.close();
     return 0;
 }
-
-// There is a lot of not optimal overuse of std::find in the code.
-// I do not like it. Why you use it so much? It is not efficient. And not necessary.
-// Use proper model of data.
