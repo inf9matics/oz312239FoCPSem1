@@ -10,6 +10,11 @@
 #include "geneticAlgorithm.h"
 #include "storages.h"
 
+// You throw some exceptions, but do not catch them.
+// Horror and disaster!!!!!!!!!!!!!!!!
+
+// To many code in main function. DRY principle is violated.
+
 int main(/*int argc, char *argv[]*/)
 {
     // Temporary solution for debugging
@@ -57,6 +62,8 @@ int main(/*int argc, char *argv[]*/)
         }
 
         // Sorting loop
+
+        // Awful! Slow sorting method. In project you should use build in fast sorting method.
         for(int i = 0; i < populationSize - 1; i++) 
         {
             int min = population[i].fitness;

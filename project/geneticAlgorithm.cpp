@@ -98,3 +98,5 @@ Chromosome crossover(const Chromosome& parent1, const Chromosome& parent2)
     child.fitness = 0;
     return child;
 }
+
+// better, but for there is std::shuffle function in <algorithm>. It is the best method for produce random permutations.
