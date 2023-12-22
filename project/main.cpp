@@ -46,67 +46,20 @@ int main(/*int argc, char *argv[]*/)
     std::vector<std::string> cityNames = readInputFile(inputFileName, distanceMatrix, cities);
 
     // Initialization of population
-    std::vector<Chromosome> population = initializePopulation(populationSize); 
+    std::vector<Chromosome> population = initializePopulation(populationSize);
+
     // Opening file for output in the main loop
     std::ofstream outputFile(outputFileName); 
 
     // Main loop
     for(int generation = 0; generation < generations; generation++) 
     {
-        // Calculate fitness
-        for(Chromosome& chromosome : population) 
-        {
-            if(chromosome.fitness == 0)
-            {
-                calculateDistance(chromosome);
-            }
-        }
+        // Calculate fitness, and sort
+        sort(population);
 
-        // Sorting loop
+        outputBestSolution(outputFile, generation, population[0], cityNames);
 
-        // Awful! Slow sorting method. In project you should use build in fast sorting method.
-        for(int i = 0; i < populationSize - 1; i++) 
-        {
-            int min = population[i].fitness;
-            int temp = i;
-            
-            for(int j = i + 1; j < populationSize; j++)
-            {
-                if(population[j].fitness < min)
-                {
-                    min = population[j].fitness;
-                    temp = j;
-                }
-            }
-
-            std::swap(population[i], population[temp]);
-        }
-
-        // Outputting best solution in the generation
-        outputFile << "\nGeneration " << generation + 1 << ", length " << population[0].fitness << "\n"; 
-        for(const int& city : population[0].path)
-        {
-            outputFile << cityNames[city] << " ";
-        }
-
-        // Picking top 10% of population for breeding
-        int eliteSize = populationSize / 10;
-        std::vector<Chromosome> elite(population.begin(), population.begin() + eliteSize); 
-
-        // Breeding offspring from elite
-        std::vector<Chromosome> offspring;
-        for(int i = 0; i < populationSize - eliteSize; i++)
-        {
-            int parent1 = get_random_in_range(0, eliteSize - 1);
-            int parent2 = get_random_in_range(0, eliteSize - 1);
-            
-            Chromosome child = crossover(elite[parent1], elite[parent2]);
-            offspring.push_back(child);
-        }
-
-        // Combining elite and offspring into a new population
-        population = elite; 
-        population.insert(population.end(), offspring.begin(), offspring.end()); 
+        breedNextPopulation(population);
     }
 
     outputFile.close();

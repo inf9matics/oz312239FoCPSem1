@@ -58,10 +58,37 @@ std::vector<std::string> readInputFile(const std::string& inputFileName, std::ve
     return cityNames;    
 }
 
+bool compareChromosomes(const Chromosome& a, const Chromosome& b)
+{
+    return a.fitness < b.fitness;
+}
+
+void outputBestSolution(std::ofstream& outputFile, int generation, const Chromosome& chromosome, const std::vector<std::string>& cityNames)
+{
+    outputFile << "\nGeneration " << generation + 1 << ", length " << chromosome.fitness << "\n"; 
+    for(const int& city : chromosome.path)
+    {
+        outputFile << cityNames[city] << " ";
+    }
+}
+
 void calculateDistance(Chromosome& chromosome)
 {
-    for(int i = 0; i < cities.size(); i++)
+    for(int i = 0; i < chromosome.path.size() - 1; i++)
     {
         chromosome.fitness += distanceMatrix[chromosome.path[i]][chromosome.path[i+1]];
     }  
+}
+
+void sort(std::vector<Chromosome>& population)
+{
+    for(Chromosome& chromosome : population) 
+    {
+        if(chromosome.fitness == 0)
+        {
+            calculateDistance(chromosome);
+        }
+    }
+
+    std::sort(population.begin(), population.end(), compareChromosomes);
 }

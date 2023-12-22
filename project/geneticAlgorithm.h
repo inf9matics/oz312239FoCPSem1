@@ -14,3 +14,4 @@ void listAvailableCities(const std::vector<std::string>& path1, const std::vecto
 bool pathBack(const std::vector<int>& path);
 std::vector<Chromosome> initializePopulation(int populationSize);
 Chromosome crossover(const Chromosome& parent1, const Chromosome& parent2);
+void breedNextPopulation(std::vector<Chromosome>& population);

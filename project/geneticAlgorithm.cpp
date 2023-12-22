@@ -99,4 +99,25 @@ Chromosome crossover(const Chromosome& parent1, const Chromosome& parent2)
     return child;
 }
 
+void breedNextPopulation(std::vector<Chromosome>& population)
+{
+    // Picking top 10% of population for breeding
+    int eliteSize = population.size() / 10;
+    std::vector<Chromosome> elite(population.begin(), population.begin() + eliteSize); 
+
+    // Breeding offspring from elite
+    std::vector<Chromosome> offspring;
+    for(int i = 0; i < population.size() - eliteSize; i++)
+    {
+        int parent1 = get_random_in_range(0, eliteSize - 1);
+        int parent2 = get_random_in_range(0, eliteSize - 1);
+            
+        Chromosome child = crossover(elite[parent1], elite[parent2]);
+        offspring.push_back(child);
+    }
+
+    // Combining elite and offspring into a new population
+    population = elite; 
+    population.insert(population.end(), offspring.begin(), offspring.end()); 
+}
 // better, but for there is std::shuffle function in <algorithm>. It is the best method for produce random permutations.
