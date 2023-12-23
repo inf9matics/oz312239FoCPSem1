@@ -1,19 +1,14 @@
 #include <iostream>
 #include <string>
-#include <map>
-#include <utility>
 #include <vector>
-#include <cmath>
 #include <fstream>
 
 #include "utils.h"
 #include "geneticAlgorithm.h"
-#include "storages.h"
 
+// TODO!!!
 // You throw some exceptions, but do not catch them.
 // Horror and disaster!!!!!!!!!!!!!!!!
-
-// To many code in main function. DRY principle is violated.
 
 int main(/*int argc, char *argv[]*/)
 {
@@ -43,23 +38,24 @@ int main(/*int argc, char *argv[]*/)
     int populationSize = std::stoi(argv[8]);*/
 
     // Reading data from a file
+    std::vector<int> cities;
+    std::vector<std::vector<int>> distanceMatrix;
     std::vector<std::string> cityNames = readInputFile(inputFileName, distanceMatrix, cities);
 
     // Initialization of population
-    std::vector<Chromosome> population = initializePopulation(populationSize);
+    std::vector<Chromosome> population = initializePopulation(distanceMatrix, cities, populationSize);
 
-    // Opening file for output in the main loop
     std::ofstream outputFile(outputFileName); 
 
     // Main loop
     for(int generation = 0; generation < generations; generation++) 
     {
         // Calculate fitness, and sort
-        sort(population);
+        sort(distanceMatrix, population);
 
         outputBestSolution(outputFile, generation, population[0], cityNames);
 
-        breedNextPopulation(population);
+        breedNextPopulation(distanceMatrix, population);
     }
 
     outputFile.close();
