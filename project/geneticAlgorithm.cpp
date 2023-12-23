@@ -7,14 +7,14 @@ int get_random_in_range(int from, int to)
     return distribution(generator);
 }
 
-bool checkConnection(const std::vector<std::vector<int>>& distanceMatrix, const std::vector<int>& path, const int& city)
+bool checkConnection(const std::vector<std::vector<int>>& distanceMatrix, const int& city1, const int& city2)
 {
-    return (distanceMatrix[path.back()][city] > 0 && std::find(path.begin(), path.end(), city) == path.end());
+    return distanceMatrix[city1][city2] > 0; 
 }
 
-bool pathBack(const std::vector<std::vector<int>>& distanceMatrix, const std::vector<int>& path)
+bool checkVisitedCities(const std::vector<std::vector<int>>& distanceMatrix, const std::vector<int>& path, const int& city)
 {
-    return distanceMatrix[path.back()][path.front()];
+    return std::find(path.begin(), path.end(), city) == path.end();
 }
 
 bool checkPath(const std::vector<std::vector<int>>& distanceMatrix, const std::vector<int>& path)
@@ -26,13 +26,13 @@ bool checkPath(const std::vector<std::vector<int>>& distanceMatrix, const std::v
     {
         visitedCities.push_back(path[i]);
 
-        if(!checkConnection(distanceMatrix, visitedCities, path[i+1]))
+        if(!checkConnection(distanceMatrix, path[i], path[i+1]) || !checkVisitedCities(distanceMatrix, visitedCities, path[i+1]))
         {
             return false;
         }
     }
 
-    if(!pathBack(distanceMatrix, path))
+    if(!checkConnection(distanceMatrix, path.back(), path.front()))
     {
         return false;
     }
@@ -78,17 +78,25 @@ Chromosome crossover(const std::vector<std::vector<int>>& distanceMatrix, const 
     }
     
     // Copying second parent's path, leaving last city
-    for(const int& city : path2)
+    for(int i = 0; i < numCities - crossoverPoint; i++)
     {
-        if(checkConnection(distanceMatrix, child.path, city))
+        for(const int& city : path2)
         {
-            child.path.push_back(city);
+            if(checkConnection(distanceMatrix, child.path.back(), city) && checkVisitedCities(distanceMatrix, child.path, city))
+            {
+                child.path.push_back(city);
+                break;
+            }
         }
     }
 
-    if(!checkPath(distanceMatrix, child.path))
+    if(!checkConnection(distanceMatrix, child.path.back(), child.path.front()))
     {
         child.path = path1;
+    }
+    else
+    {
+        child.path.push_back(child.path.front());
     }
 
     

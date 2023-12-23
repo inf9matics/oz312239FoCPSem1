@@ -39,8 +39,17 @@ int main(/*int argc, char *argv[]*/)
 
     // Reading data from a file
     std::vector<int> cities;
+    std::vector<std::string> cityNames;
     std::vector<std::vector<int>> distanceMatrix;
-    std::vector<std::string> cityNames = readInputFile(inputFileName, distanceMatrix, cities);
+    try
+    {
+        cityNames = readInputFile(inputFileName, distanceMatrix, cities);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 1;
+    }
 
     // Initialization of population
     std::vector<Chromosome> population = initializePopulation(distanceMatrix, cities, populationSize);
@@ -53,8 +62,10 @@ int main(/*int argc, char *argv[]*/)
         // Calculate fitness, and sort
         sort(distanceMatrix, population);
 
+        // Outputting best solution for each genereation into a file
         outputBestSolution(outputFile, generation, population[0], cityNames);
 
+        // Generating next generation based on top 10% of the previous one
         breedNextPopulation(distanceMatrix, population);
     }
 
