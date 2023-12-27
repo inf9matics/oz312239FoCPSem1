@@ -6,10 +6,6 @@
 #include "utils.h"
 #include "geneticAlgorithm.h"
 
-// TODO!!!
-// You throw some exceptions, but do not catch them.
-// Horror and disaster!!!!!!!!!!!!!!!!
-
 int main(/*int argc, char *argv[]*/)
 {
     // Temporary solution for debugging
