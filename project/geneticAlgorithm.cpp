@@ -75,11 +75,14 @@ Chromosome crossover(const std::vector<std::vector<int>>& distanceMatrix, const 
     child.path.insert(child.path.begin(), path1.begin(), path1.begin() + crossoverPoint);
     
     // Copying second parent's path, leaving last city
-    for(const int& city : path2)
+    while(child.path.size() != numCities)
     {
-        if(checkConnection(distanceMatrix, child.path.back(), city) && checkVisitedCities(distanceMatrix, child.path, city))
+        for(const int& city : path2)
         {
-            child.path.push_back(city);
+            if(checkConnection(distanceMatrix, child.path.back(), city) && checkVisitedCities(distanceMatrix, child.path, city))
+            {
+                child.path.push_back(city);
+            }
         }
     }
 
