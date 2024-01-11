@@ -94,4 +94,5 @@ int dijkstra(const std::vector<std::vector<std::pair<int, int>>>& adjacencyList,
 
     return distance[D];
 }
-
+// Generally ok. But I'll reduce a mark for the project if you will permanently use type like std::vector<std::vector<std::pair<int, int>>>.
+// Another thing is that you overuse std::vector. It will reduce your mark as well.
