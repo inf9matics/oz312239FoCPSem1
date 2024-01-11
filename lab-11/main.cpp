@@ -5,12 +5,18 @@
 
 #include "utils.h"
 
-int main()
+int main(int argc, char *argv[])
 {
+    if(argc < 2)
+    {
+        std::cerr << "Proper way to call this program: \n"
+                  << "dijkstra <input file name>\n";
+        return 1;
+    }
     char mapType;
     int S = 0, D = 0, nOfCities;
     std::vector<std::vector<std::pair<int, int>>> adjecencyList;
-    std::string inputFileName = "F:\\VSCode\\6d440384-gr03-repo\\lab-11\\input.txt";
+    std::string inputFileName = argv[1];
 
     try
     {
