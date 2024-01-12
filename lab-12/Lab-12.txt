@@ -1,0 +1,25 @@
+Dynamic Variables - Linked Trees and Graphs
+
+1. Dynamic pointers in C++
+	- new and delete operator !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (memory leaks)	
+	- arrays (operator new type[] and delete []array). 
+	
+	- construct a regular binary tree of given depth storing random values.
+	  Each node must have the fallowing structure:
+	  struct node
+		{
+			int node_id = 0;
+			char node_data[100] = {0};
+			node *p_left_descendant_node = nullptr;
+			node *p_right_descendant_node = nullptr;
+		};
+	  node_id should contain the following numbers from 1 to the n-th, where n is a number of vertices
+	  node_data should contain 100 random printing letters [a-z,A-z,0-9]
+	- recursive tree creation, 
+	- recursive content printing,
+	- random subtree extraction 
+	- subtree content printing
+	- subtree destroying
+	- the rest of the tree destroying.
+	- destroyed node should inform the user that it is just destroyed with some message.
+2. Implementation of 3 with smart pointers (for advanced students)

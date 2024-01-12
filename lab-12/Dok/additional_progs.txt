@@ -1,0 +1,3 @@
+https://www.doxygen.nl/download.html
+https://miktex.org/
+https://www.graphviz.org/download/
