@@ -1,0 +1,24 @@
+Tree content:
+Node 0: X6F4yknHxfrE2bfMjbOEkw8pPS0py6bmQTrf6nIIn4nMlo3rTbRy46re4nXK3SG990bv9cmlJIWNJg5M4AmCGiaSKOQFbXM5az3
+Node 1: GUYy5pRPmexIgEgbqX0IrC9Z4iA7NWAGIES6cseAC6waydT4tGuyzQsHxLSveLojYPXb670iZ3Kx2JGWL4YIePLBUzPrq8C6SKp
+Node 2: rwxYZhRzEdeZI0Ycq62j3YWpCCNEinFvX68AZRE8oqwgDhMc3TjGGWm3duF3oiRbGa4RIQXswWqTiNA8pWEP87awNOA5mMAOqbA
+Node 3: G1uqiYwHyGiDKxDhnPO3BVNrtvrZm96ELQ2PEEufTfBwAFVlB1cCB4erWV80e3l7DNmQ0oQidwtVh1rmlgcCXpwEx7vGWD3wr0F
+Node 4: oOPllshmxL0pX6p03WkN5xxz27BCQCFAdssCwdcP00rZniEV92BYupIKEOf4wcK4MXEYixPQolvk9z4mUMNjxkMnvncHJ5sUZ06
+Node 5: ux8MAGJCvY5ZeAn30rm0yvlu9YHKFuM23WvfQLSWDmHo5EIA3zdw7PeePnZvvIoZZeGqhtkgLg3bz4Tlhlg9rvaI1HSkR3UB7tJ
+Node 6: tXp9xe9xXDNXyz6GG4Sl3UQOt9eW82uo0ty1eyTmSexHhI8rK0UftcwVQM7vMOuZrbT7AolP5zIiuwX1fdmauwZpQ3FSnLbUn0W
+
+Random subtree content:
+Node 4: oOPllshmxL0pX6p03WkN5xxz27BCQCFAdssCwdcP00rZniEV92BYupIKEOf4wcK4MXEYixPQolvk9z4mUMNjxkMnvncHJ5sUZ06
+Node 5: ux8MAGJCvY5ZeAn30rm0yvlu9YHKFuM23WvfQLSWDmHo5EIA3zdw7PeePnZvvIoZZeGqhtkgLg3bz4Tlhlg9rvaI1HSkR3UB7tJ
+Node 6: tXp9xe9xXDNXyz6GG4Sl3UQOt9eW82uo0ty1eyTmSexHhI8rK0UftcwVQM7vMOuZrbT7AolP5zIiuwX1fdmauwZpQ3FSnLbUn0W
+
+Subtree destroyed:
+Node with id 5 has just been destroyed.
+Node with id 6 has just been destroyed.
+Node with id 4 has just been destroyed.
+
+Tree destroyed:
+Node with id 2 has just been destroyed.
+Node with id 3 has just been destroyed.
+Node with id 1 has just been destroyed.
+Node with id 0 has just been destroyed.
