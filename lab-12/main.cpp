@@ -42,3 +42,4 @@ int main(int argc, char *argv[])
     outputFile.close();
     return 0;
 }
+//ok
