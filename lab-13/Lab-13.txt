@@ -1,0 +1,33 @@
+Dynamic Variables - Linked Trees and Graphs
+
+Task from previous lab
+   Dynamic pointers in C++
+	- new and delete operator !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (memory leaks)	
+	- arrays (operator new type[] and delete []array). 
+	
+	- construct a regular binary tree of given depth storing random values.
+	  Each node must have the fallowing structure:
+	  struct node
+		{
+			int node_id = 0;
+			char node_data[100] = {0};
+			node *p_left_descendant_node = nullptr;
+			node *p_right_descendant_node = nullptr;
+		};
+	  node_id should contain the following numbers from 1 to the n-th, where n is a number of vertices
+	  node_data should contain 100 random printing letters [a-z,A-z,0-9]
+	- recursive tree creation, 
+	- recursive content printing,
+	- random subtree extraction 
+	- subtree content printing
+	- subtree destroying
+	- the rest of the tree destroying.
+	- destroyed node should inform the user that it is just destroyed with some message.
+
+1. Implement the above algorithm using smart pointers:
+	- unique_ptr
+	- shared_ptr
+
+2. Implement the Kruskal's algorithm for finding the shortest spanning tree. 
+   As an input use the graph from the files input.txt abd input2.txt.
+   https://en.wikipedia.org/wiki/Kruskal%27s_algorithm
