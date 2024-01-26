@@ -1,0 +1,3 @@
+graphs
+Implement a program to check if a graph is bipartite. Check using bp.txt and nbp.txt as examples.
+See: https://polslpl-my.sharepoint.com/:b:/g/personal/slasota_polsl_pl/ERbeVYCT7UtMtH2tmhCN0K0BRrOEh3TdAGTQxeN7JY0Leg?e=mRpEVm
