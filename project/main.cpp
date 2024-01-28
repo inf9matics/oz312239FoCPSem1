@@ -2,36 +2,64 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <map>
 
 #include "utils.h"
 #include "geneticAlgorithm.h"
 
-int main(/*int argc, char *argv[]*/)
+int main(int argc, char *argv[]) // .\build\project\project -i .\\project\\input.txt -o .\\project\\output.txt -g 30 -n 1000
 {
     // Temporary solution for debugging
-    std::string inputFileName = "input.txt"; 
+    std::string inputFileName = "funnylittlemap.txt"; 
     std::string outputFileName = "output.txt";
     int generations = 30;
     int populationSize = 1000;
 
-    // Checks for proper input values
-    /*if(argc < 9) 
+    /*std::string inputFileName;
+    std::string outputFileName;
+    int generations = 0;
+    int populationSize = 0;
+
+    // Parse command-line arguments
+    if(argc < 9) 
     {
         std::cerr << "Proper use of the program:\n"
                   << "project.exe -i <input file name> -o <output file name> -g <number of generations> -n <number of individuals in a generation(at least 100)>\n";
         return 1;
     }
 
-    std::string inputFileName = argv[2];
-    std::string outputFileName = argv[4];
-    
-    if(!isNumber(argv[6]) || !isNumber(argv[8]) || std::stoi(argv[6]) < 1 || std::stoi(argv[8]) < 100)
-    {
-        std::cerr << "Number of generations or number of individuals constains invalid data.\n";
-        return 1;
-    }
-    int generations = std::stoi(argv[6]);
-    int populationSize = std::stoi(argv[8]);*/
+    for (int i = 1; i < argc; i++) {
+        std::string arg = argv[i];
+        if (arg == "-i") {
+            if (i + 1 < argc) { 
+                inputFileName = argv[++i]; 
+            } else { 
+                std::cerr << "-i option requires one argument." << std::endl;
+                return 1;
+            }
+        } else if (arg == "-o") {
+            if (i + 1 < argc) {
+                outputFileName = argv[++i];
+            } else {
+                std::cerr << "-o option requires one argument." << std::endl;
+                return 1;
+            }
+        } else if (arg == "-g") {
+            if (i + 1 < argc) {
+                generations = std::atoi(argv[++i]);
+            } else {
+                std::cerr << "-g option requires one argument." << std::endl;
+                return 1;
+            }
+        } else if (arg == "-n") {
+            if (i + 1 < argc) {
+                populationSize = std::atoi(argv[++i]);
+            } else {
+                std::cerr << "-n option requires one argument." << std::endl;
+                return 1;
+            }
+        }
+    }*/
 
     // Reading data from a file
     std::vector<int> cities;

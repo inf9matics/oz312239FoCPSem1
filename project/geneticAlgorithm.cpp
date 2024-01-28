@@ -67,40 +67,33 @@ std::vector<Chromosome> initializePopulation(const std::vector<std::vector<int>>
 Chromosome crossover(const std::vector<std::vector<int>>& distanceMatrix, const std::vector<int>& path1, const std::vector<int>& path2)
 {
     int numCities = path1.size() - 1;
-    int crossoverPoint = get_random_in_range(1, numCities - 1); //Randomly choosing point in which parents' paths get mixed
-    
+    int crossoverPoint = get_random_in_range(1, numCities - 1); // Randomly choosing crossover point
+
     Chromosome child;
 
     // Copying first parent's path up to the crossover point
     child.path.insert(child.path.begin(), path1.begin(), path1.begin() + crossoverPoint);
-    
-    // Copying second parent's path, leaving last city
-    for(const int& city : path2)
-    {
-        if(checkConnection(distanceMatrix, child.path.back(), city) && checkVisitedCities(distanceMatrix, child.path, city))
-        {
+
+    // Copying second parent's path, ensuring no city is skipped or duplicated
+    for (const int& city : path2) {
+        if (std::find(child.path.begin(), child.path.end(), city) == child.path.end()) {
             child.path.push_back(city);
-            
-            if(child.path.size() == numCities)
-            {
-                break;
-            }
         }
     }
 
-    if(!checkConnection(distanceMatrix, child.path.back(), child.path.front()))
-    {
+    // Ensure the child's path is a valid loop
+    if (child.path.size() < numCities || !checkConnection(distanceMatrix, child.path.back(), child.path.front())) {
         child.path = path1;
-    }
-    else
+    } 
+    else 
     {
         child.path.push_back(child.path.front());
     }
 
-    
     child.fitness = 0;
     return child;
 }
+
 
 void breedNextPopulation(const std::vector<std::vector<int>>& distanceMatrix, std::vector<Chromosome>& population)
 {
