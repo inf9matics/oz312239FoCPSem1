@@ -1,4 +1,5 @@
 #User defined
+html/
 .cmake/
 *.json
 .vscode/
