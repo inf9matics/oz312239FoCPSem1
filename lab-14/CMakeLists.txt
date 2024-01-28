@@ -1,0 +1,1 @@
+add_executable(bipartite main.cpp utils.cpp)

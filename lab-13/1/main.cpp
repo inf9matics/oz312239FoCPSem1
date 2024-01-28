@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     }
 
     std::ofstream outputFile;
+    auto defaultBuffer = std::cout.rdbuf();//save default buffer
     if(argc > 2)
     {
         outputFile.open(argv[2]);
@@ -38,8 +39,9 @@ int main(int argc, char *argv[])
 
     std::cout << "Tree destroyed:\n";
     destroyTree(root);
-    root.reset();
+    // root.reset();reset must be in destroyTree
 
-    outputFile.close();
+    std::cout.rdbuf(defaultBuffer);//restore default buffer before close file.
+    outputFile.close();//You should 
     return 0;
 }

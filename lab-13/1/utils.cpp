@@ -43,23 +43,25 @@ void genTree(std::unique_ptr<node>& root, int depth, int& id)
 
 std::unique_ptr<node> extractSubtree(std::unique_ptr<node>& root)
 {
-    if(!root)
-    {
-        return nullptr;
-    }
+    return std::move(root);
+    //awful way to create to extract
+    // if(!root)
+    // {
+    //     return nullptr;
+    // }
 
-    std::unique_ptr<node> subtree;
+    // std::unique_ptr<node> subtree;
 
-    if(get_random_in_range(1,2) == 0)
-    {
-        subtree = std::move(root->p_left_descendant_node);
-    }
-    else
-    {
-        subtree = std::move(root->p_right_descendant_node);
-    }
+    // if(get_random_in_range(1,2) == 0)
+    // {
+    //     subtree = std::move(root->p_left_descendant_node);
+    // }
+    // else
+    // {
+    //     subtree = std::move(root->p_right_descendant_node);
+    // }
 
-    return subtree;
+    // return subtree;
 }
 
 void printTree(const node* root)
@@ -81,5 +83,6 @@ void destroyTree(std::unique_ptr<node>& treeRoot)
         destroyTree(treeRoot->p_right_descendant_node);
 
         std::cout << "Node with id " << treeRoot->node_id << " has just been destroyed.\n";
+        treeRoot.reset();//Without this line, the nodes will not be destroyed.
     }
 }
