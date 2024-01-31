@@ -9,9 +9,9 @@ std::deque<std::pair<int, int>> readFromInput(const std::string& inputFileName)
         throw std::runtime_error("There is an issue with your input file.");
     }
 
-    std::deque<std::pair<int, int>> adjecencyList; 
+    std::deque<std::pair<int, int>> adjacencyList; 
     std::string line;
-    while(Std::getline(inputFile, line))
+    while(std::getline(inputFile, line))
     {
         std::istringstream iss(line);
         int p1 = 0, p2 = 0;
@@ -20,30 +20,44 @@ std::deque<std::pair<int, int>> readFromInput(const std::string& inputFileName)
         {
             while(iss >> p2)
             {
-                adjecencyList.push_back(std::make_pair(p1, p2));
+                adjacencyList.push_back(std::make_pair(p1, p2));
             }
         }
     }
 
     inputFile.close();
-    return adjecencyList;
+    return adjacencyList;
 }
 
-bool isBipartite(std::deque<std::pair<int, int>>& adjecencyList)
+bool isBipartite(std::deque<std::pair<int, int>>& adjacencyList)
 {
     std::set<int> blue;
     std::set<int> red;
-    int nOfConnections = adjecencyList.size();
+    int nOfConnections = adjacencyList.size();
 
-    blue.insert(adjecencyList[0].first);
-    red.insert(adjecencyList[0].second);
+    std::vector<int> colors(nOfConnections, 0);
 
-    for(int i = 1; i < nOfConnections; i++)
+    colors[adjacencyList[0].first] = 1;
+    colors[adjacencyList[0].second] = -1;
+
+    for (auto& edge : adjacencyList)
     {
-        int p1 = adjecencyList[i].first;
-        int p2 = adjecencyList[i].second;
-        
-        
+        int p1 = edge.first;
+        int p2 = edge.second;
+
+        if (colors[p1] == colors[p2])
+        {
+            return false;
+        }
+
+        if (colors[p1] == 0)
+        {
+            colors[p1] = -colors[p2];
+        }
+
+        if (colors[p2] == 0)
+        {
+            colors[p2] = -colors[p1];
         }
     }
 

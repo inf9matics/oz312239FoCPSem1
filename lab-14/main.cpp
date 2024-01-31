@@ -4,18 +4,26 @@
 
 #include "utils.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-    std::string inputFileName = "placeholder until i get home";
+    if(argc < 2)
+    {
+        std::cerr << "Proper way to use a program:\n"
+                  << "bipartite <input file>\n";
+        return 1;
+    }
+    
+    std::string inputFileName = argv[1];
     std::deque<std::pair<int, int>> adjecencyList;
 
     try
     {
-        adjecencyList = readFromInput(inputFileName)
+        adjecencyList = readFromInput(inputFileName);
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
+        return 1;
     }
 
     if(isBipartite(adjecencyList))
