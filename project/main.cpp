@@ -9,18 +9,11 @@
 
 int main(int argc, char *argv[]) // .\build\project\project -i .\\project\\input.txt -o .\\project\\output.txt -g 30 -n 1000
 {
-    // Temporary solution for debugging
-    std::string inputFileName = "funnylittlemap.txt"; 
-    std::string outputFileName = "output.txt";
-    int generations = 30;
-    int populationSize = 1000;
-
-    /*std::string inputFileName;
+    std::string inputFileName;
     std::string outputFileName;
     int generations = 0;
     int populationSize = 0;
 
-    // Parse command-line arguments
     if(argc < 9) 
     {
         std::cerr << "Proper use of the program:\n"
@@ -28,38 +21,57 @@ int main(int argc, char *argv[]) // .\build\project\project -i .\\project\\input
         return 1;
     }
 
-    for (int i = 1; i < argc; i++) {
+    for (int i = 1; i < argc; i++) 
+    {
         std::string arg = argv[i];
-        if (arg == "-i") {
-            if (i + 1 < argc) { 
+        if (arg == "-i") 
+        {
+            if (i + 1 < argc) 
+            { 
                 inputFileName = argv[++i]; 
-            } else { 
-                std::cerr << "-i option requires one argument." << std::endl;
+            } 
+            else 
+            { 
+                std::cerr << "-i option requires one argument.\n";
                 return 1;
             }
-        } else if (arg == "-o") {
-            if (i + 1 < argc) {
+        } 
+        else if (arg == "-o") 
+        {
+            if (i + 1 < argc) 
+            {
                 outputFileName = argv[++i];
-            } else {
-                std::cerr << "-o option requires one argument." << std::endl;
+            } else 
+            {
+                std::cerr << "-o option requires one argument.\n";
                 return 1;
             }
-        } else if (arg == "-g") {
-            if (i + 1 < argc) {
+        } 
+        else if (arg == "-g") 
+        {
+            if (i + 1 < argc) 
+            {
                 generations = std::atoi(argv[++i]);
-            } else {
-                std::cerr << "-g option requires one argument." << std::endl;
+            } 
+            else 
+            {
+                std::cerr << "-g option requires one argument.\n";
                 return 1;
             }
-        } else if (arg == "-n") {
-            if (i + 1 < argc) {
+        } 
+        else if (arg == "-n") 
+        {
+            if (i + 1 < argc) 
+            {
                 populationSize = std::atoi(argv[++i]);
-            } else {
-                std::cerr << "-n option requires one argument." << std::endl;
+            } 
+            else 
+            {
+                std::cerr << "-n option requires one argument.\n";
                 return 1;
             }
         }
-    }*/
+    }
 
     // Reading data from a file
     std::vector<int> cities;
