@@ -1,4 +1,17 @@
 {
+    "cmake.debugConfig": {
+        "args": [
+            "-i",
+            "F:\\VSCode\\6d440384-gr03-repo\\project\\input.txt",
+            "-o",
+            "F:\\VSCode\\6d440384-gr03-repo\\project\\output.txt",
+            "-g",
+            "30",
+            "-n",
+            "1000",
+        ]
+    },
+    
     "files.associations": {
         "array": "cpp",
         "atomic": "cpp",
