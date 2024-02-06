@@ -1,4 +1,4 @@
-Gliwice Zabrze Katowice Czestochowa
+Gliwice Zabrze Katowice 
 0 10 15 5
 11 0 9 7
 6 -1 0 6
