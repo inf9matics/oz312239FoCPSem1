@@ -1,3 +1,7 @@
+/**
+ * @file errorMessages.cpp
+ * @author Oliwier Zasadni
+ */
 #include "errorMessages.h"
 
 /**
@@ -34,40 +38,69 @@ void printHelp()
 void printDataInstruction(const int& r, const int& c, const std::string& val)
 {
     std::cerr << "\033[1;31m"
-              << "There was an issue with value of your input file,\n"
+              << "There was an issue with value of your input file.\n"
               << "At line " << r + 2 << ", column " << c + 1 << " there is a value " << val << " which should be only an integer.\n"
               << "\033[1;33m";
     exemplaryFile();
 }
 
 /**
- * @brief Prints an instruction related to the map size issue and exits.
+ * @brief Prints an error message when an input file contains values exceeding the expected size based on the number of cities.
  *
- * @param d Indicator of the specific map size issue encountered:
- *          0 indicates the map is too small to accommodate all cities,
- *          any other value indicates there are too many rows or columns for the chosen number of cities.
- *
- * @details This function provides guidance on how to resolve issues related to the map size as defined in the input file.
- * It differentiates between the map being too small to include all cities and the map having too many rows or columns
- * relative to the number of cities. The error message is color-coded and includes suggestions for adjusting the input file.
+ * @param r The zero-based line number in the input file where the error was detected, adjusted for display.
+ * @param c The zero-based column number in the input file where the error was detected, adjusted for display.
+ * @param val The unexpected value encountered at the specified location.
+ * 
+ * @details This function is called when the program detects a value in the input file that should not exist, given the specified number of cities.
+ * It indicates that the input file has more data than necessary, suggesting an error in the map values or the list of city names.
+ * The function provides the exact location of the unexpected value (line and column) and advises on adjusting the input file.
  */
-void printSizeInstruction(const int& d)
+void printErrorMapTooBig(const int& r, const int& c, const std::string& val)
 {
-    if(d == 0)
-    {
-        std::cerr << "\033[1;31m"
-                  << "The size of the map is not big enough to accomodate all of the cities.\n"
-                  << "Consider adding more data to the map, or deleting some of the not used cities.\n"
-                  << "\033[1;33m";
-    }
-    else
-    {
-        std::cerr << "\033[1;31m"
-                  << "There is either too many rows or too many columns in the map for the choosen number of cities.\n"
-                  << "Consider adding another city or deleting obsolete map values from your input file.\n"
-                  << "\033[1;33m";
-    }
+    std::cerr << "\033[1;31m"
+              << "There was an issue with value of your input file.\n"
+              << "At line " << r + 2 << ", column " << c + 1 << " there is a value " << val << " that shouldn't exist, because the number of cities is not big enough to accommodate it.\n"
+              << "Please adjust either map values or city names.\n"
+              << "\033[1;33m";
+    exemplaryFile();
+}
 
+/**
+ * @brief Prints an error message when a row in the input file does not contain enough values for the selected number of cities.
+ *
+ * @param r The zero-based line number in the input file where the column count issue was detected, adjusted for display.
+ * @param c The actual count of values in the problematic row, indicating the number of columns that are present.
+ * 
+ * @details This function addresses situations where a row in the input file's map section has fewer values than required for the specified number of cities.
+ * It points out the specific row with insufficient column values, indicating the shortfall and suggesting corrections to the input file to ensure
+ * every city is properly represented.
+ */
+void printErrorColumns(const int& r, const int& c)
+{
+    std::cerr << "\033[1;31m"
+              << "There was an issue with value of your input file.\n"
+              << "At line " << r + 2 << " there is a column of the map that only has " << c << " values, which is not enough for selected number of cities.\n"
+              << "Please adjust either map values or city names.\n"
+              << "\033[1;33m";
+    exemplaryFile();
+}
+
+/**
+ * @brief Prints an error message when the input file does not contain enough rows for the selected number of cities.
+ * 
+ * @param r The actual number of rows present in the input file's map section, indicating the shortfall in map size.
+ * 
+ * @details When the input file's map section has fewer rows than needed to represent all specified cities, this function is invoked.
+ * It highlights the discrepancy between the map's size and the number of cities, providing the actual number of rows present
+ * and recommending adjustments to either the map values or the city names in the input file.
+ */
+void printErrorRows(const int& r)
+{
+    std::cerr << "\033[1;31m"
+              << "There was an issue with value of your input file.\n"
+              << "Your map only has " << r << " rows, which is not enough for selected number of cities.\n"
+              << "Please adjust either map values or city names.\n"
+              << "\033[1;33m";
     exemplaryFile();
 }
 

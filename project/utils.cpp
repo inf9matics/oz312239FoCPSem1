@@ -153,7 +153,6 @@ std::vector<std::string> readInputFile(const std::string& inputFileName, std::ve
 
     int nOfCities = cityNames.size();
     int r = 0, c = 0;
-    bool rows, columns;
 
     distanceMatrix.resize(nOfCities, std::vector<int>(nOfCities, 0));
 
@@ -167,7 +166,7 @@ std::vector<std::string> readInputFile(const std::string& inputFileName, std::ve
         {
             if (r + 1 > nOfCities || c + 1 > nOfCities)
             {
-                printSizeInstruction(1);
+                printErrorMapTooBig(r, c, val);
             }
             else if(isNumber(val))
             {
@@ -180,18 +179,18 @@ std::vector<std::string> readInputFile(const std::string& inputFileName, std::ve
             }
         }
 
-        if(c < nOfCities)
+        if(c != nOfCities)
         {
-            printSizeInstruction(0);
+            printErrorColumns(r, c);
         }
 
         cities.push_back(r);
         r++;
     }
 
-    if(r < nOfCities)
+    if(r != nOfCities)
     {            
-        printSizeInstruction(0);
+        printErrorRows(r);
     }
 
     inputFile.close();

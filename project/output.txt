@@ -1,14 +1,14 @@
 Generation 1, length 31
-Katowice Gliwice Zabrze Czestochowa Katowice 
+Gliwice Zabrze Katowice Czestochowa Gliwice 
 =====================================================================================
 Generation 2, length 23
-Gliwice Czestochowa Katowice Zabrze Gliwice 
+Czestochowa Katowice Zabrze Gliwice Czestochowa 
 =====================================================================================
 Generation 3, length 23
 Czestochowa Katowice Zabrze Gliwice Czestochowa 
 =====================================================================================
 Generation 4, length 23
-Gliwice Czestochowa Katowice Zabrze Gliwice 
+Czestochowa Katowice Zabrze Gliwice Czestochowa 
 =====================================================================================
 Generation 5, length 23
 Gliwice Czestochowa Katowice Zabrze Gliwice 
@@ -17,16 +17,16 @@ Generation 6, length 23
 Gliwice Czestochowa Katowice Zabrze Gliwice 
 =====================================================================================
 Generation 7, length 23
-Gliwice Czestochowa Katowice Zabrze Gliwice 
+Czestochowa Katowice Zabrze Gliwice Czestochowa 
 =====================================================================================
 Generation 8, length 23
-Gliwice Czestochowa Katowice Zabrze Gliwice 
+Czestochowa Katowice Zabrze Gliwice Czestochowa 
 =====================================================================================
 Generation 9, length 23
 Gliwice Czestochowa Katowice Zabrze Gliwice 
 =====================================================================================
 Generation 10, length 23
-Gliwice Czestochowa Katowice Zabrze Gliwice 
+Czestochowa Katowice Zabrze Gliwice Czestochowa 
 =====================================================================================
 Generation 11, length 23
 Gliwice Czestochowa Katowice Zabrze Gliwice 
