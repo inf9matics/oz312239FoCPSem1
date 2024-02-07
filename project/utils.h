@@ -70,6 +70,10 @@ Parameters interface(int argc, char *argv[]);
  */
 void printDataInstruction(const int& i, const int& j, const std::string& val);
 
+void printSizeInstruction(const int& d);
+
+void exemplaryFile();
+
 /**
  * @brief Reads an input file to initialize the distance matrix and city list.
  * 

@@ -4,6 +4,7 @@
  */
 
 #include "utils.h"
+#include "errorMessages.h"
 
 /**
  * @brief Check if a string is a valid integer.
@@ -34,22 +35,6 @@ bool isNumber(const std::string& s)
         }
     }
     return true;
-}
-
-/**
- * @brief Print help instructions for running the program.
- */
-void printHelp()
-{
-    std::cerr << "\033[1;31m"
-              << "Short instruction for running this program:\n"
-              << "project.exe -i <input file name> -o <output file name> -g <number of generations> -n <population size>\n" << "\033[1;33m"
-              << "-i : path\\to\\your\\input\\file.txt\n"
-              << "-o : path\\to\\your\\output\\file.txt\n"
-              << "-g : integer number bigger than 0\n"
-              << "-n : integer number bigger than 100\n"
-              << "\033[0m";
-    exit(EXIT_FAILURE);
 }
 
 /**
@@ -132,31 +117,6 @@ Parameters interface(int argc, char *argv[])
 }
 
 /**
- * @brief Print an error message and exit when encountering invalid data in the input file.
- *
- * @param i The line number where the error occurred.
- * @param j The column number where the error occurred.
- * @param val The invalid value encountered.
- * 
- * @details This function is called when invalid data is encountered in the input file.
- * It prints an error message indicating the location of the error and the invalid value.
- */
-void printDataInstruction(const int& i, const int& j, const std::string& val)
-{
-    std::cerr << "\033[1;31m"
-              << "There was an issue with value of your input file,\n"
-              << "At line " << i << ", column " << j << " there is a value " << val << " which should be only an integer.\n"
-              << "Exemplary input file:\n"
-              << "Gliwice Zabrze Katowice Czestochowa\n"
-              << " 0 10 15  5\n"
-              << "11  0  9  7\n"
-              << " 6 -1  0  6\n"
-              << " 6 14  8  0\n"
-              << "\033[0m";
-    exit(EXIT_FAILURE);
-}
-
-/**
  * @brief Read input data from the input file and populate distanceMatrix and cities vectors.
  *
  * @param inputFileName The name of the input file.
@@ -191,27 +151,47 @@ std::vector<std::string> readInputFile(const std::string& inputFileName, std::ve
         }
     }
 
-    int numCities = cityNames.size();
+    int nOfCities = cityNames.size();
+    int r = 0, c = 0;
+    bool rows, columns;
 
-    distanceMatrix.resize(numCities, std::vector<int>(numCities, 0));
+    distanceMatrix.resize(nOfCities, std::vector<int>(nOfCities, 0));
 
-    for(int i = 0; i < numCities; i++)
+    while(getline(inputFile, line))
     {
-        cities.push_back(i);
-
-        for(int j = 0; j < numCities; j++)
+        std::istringstream iss(line);
+        std::string val;
+        c = 0;
+        
+        while(iss >> val)
         {
-            std::string val;
-            inputFile >> val;
-            if(isNumber(val))
+            if (r + 1 > nOfCities || c + 1 > nOfCities)
             {
-                distanceMatrix[i][j] = std::stoi(val);
+                printSizeInstruction(1);
+            }
+            else if(isNumber(val))
+            {
+                distanceMatrix[r][c] = std::stoi(val);
+                c++;
             }
             else
             {
-                printDataInstruction(i + 2, j + 1, val);
+                printDataInstruction(r, c, val);
             }
         }
+
+        if(c < nOfCities)
+        {
+            printSizeInstruction(0);
+        }
+
+        cities.push_back(r);
+        r++;
+    }
+
+    if(r < nOfCities)
+    {            
+        printSizeInstruction(0);
     }
 
     inputFile.close();
